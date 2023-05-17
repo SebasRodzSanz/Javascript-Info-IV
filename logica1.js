@@ -6,60 +6,57 @@ formulario.addEventListener('submit',(e)=>{
 	validar();
 });
 
-const validar = function () {
-		const nombre=formulario.querySelector('#no_cuenta').value;
-		const contra=formulario.querySelector('#contra').value;
-	 	const usuario= validarCampos(nombre,contra);
-	 	if (usuario===undefined) {
+const validar =  () =>{
+	 const nombre=formulario.querySelector('#no_cuenta').value;
+	 const contra=formulario.querySelector('#contra').value;
+	 const usuario= validarCampos(nombre,contra);
+ 	if (!usuario) {
 	 		console.log('Los datos no fueron correctos');
 	 		//no se puede hacer una consulta a la base de datos
-	 	}else {
-	 		mensaje.innerHTML=`Tus datos se estan verificando...`;
-	 		//se puede hacer una consulta a la base de datos
-	 	}
+	}else {
+ 		mensaje.textContent=`Tus datos se estan verificando...`;
+		//se puede hacer una consulta a la base de datos
+	 }
 }
 const validarCampos = (numero,pass)=>{
 	try {
 		console.log("Inicio de validaciones");
 
-		let validado = numeroValido(numero);
-		let espacio = espaciosVacios(pass);
-		let cadena =  tamañoString(espacio);
-		console.log('Los datos estan listos para enviarse a la base de datos ');
+		let no_cuenta = verificarNumeroValido(numero);
+		let contraseña = verificarEspaciosVacios(pass);
+		contraseña =  verificarTamanioString(contraseña);
+		
 		const usuario ={
-			no_cuenta: validado,
-			password: cadena,
+			no_cuenta,
+			contraseña
 		}
 		return usuario;
-
 	} catch(err) {
-		console.error(err.message);
-		mensaje.innerHTML='Verifica el numero de cuenta o la contraseña';
+		mensaje.textContent='Verifica el numero de cuenta o la contraseña';
 	}
 }
-function numeroValido(numero) {
-	let nuevo = parseInt(numero, 10);
-	if(Number.isNaN(nuevo)){
+const verificarNumeroValido= (numero)=> {
+	let nuevoNumero = parseInt(numero, 10);
+	if(Number.isNaN(nuevoNumero)){
 		throw new Error ('Error, el dato ingresado no es un numero ');
 	}else {
-		return numero;
+		return nuevoNumero;
 	}
-	
 }
-function tamañoString(pass) {
-	let n = pass.length;
-	if (n >8 || n <1) {
+const verificarTamanioString =(pass)=> {
+	let tamañoCadena = pass.length;
+	if (tamañoCadena >8 || tamañoCadena <1) {
 		throw new Error('Error, numero de caracteres no valido');
-	}else if(n === 8){
+	}else if(tamañoCadena === 8){
 		return pass;
 	}else {
 		throw new Error('Error, numero de caracteres no valido');
 	}
 }
-function espaciosVacios(pass) {
-	let array =pass.split(' ');
-	let n =array.length;
-	if(n >= 2){
+const verificarEspaciosVacios= (pass) =>{
+	let numeroEspacios =pass.split(' ');
+	let tamanioArreglo =numeroEspacios.length;
+	if(tamanioArreglo >= 2){
 		throw new Error('Error, la cadena contiene espacios en blanco');
 	}
 	return pass;
