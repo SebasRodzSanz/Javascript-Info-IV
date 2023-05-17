@@ -23,12 +23,12 @@ const validarCampos = (numero,pass)=>{
 		console.log("Inicio de validaciones");
 
 		let no_cuenta = verificarNumeroValido(numero);
-		let contraseña = verificarEspaciosVacios(pass);
-		contraseña =  verificarTamanioString(contraseña);
+		let contrasenia = verificarEspaciosVacios(pass);
+		contrasenia =  verificarTamanioString(contrasenia);
 		
 		const usuario ={
 			no_cuenta,
-			contraseña
+			contrasenia
 		}
 		return usuario;
 	} catch(err) {
