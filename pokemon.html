@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokemon API</title>
+</head>
+<body>
+	<div id="titulo">
+		<h3>Tablas con datos del api</h3>
+		<p>Datos con las API de pokemon y json</p>
+	</div>
+	<div id="tabla-datos">
+		<table id="tabla" border="2">
+			<thead>
+				<tr>
+					<th>Nombre del pokemon</th>
+					<th>Url</th>
+					<th>Habilidad 1</th>
+					<th>Habilidad 2</th>
+				</tr>
+			</thead>
+			<tbody id="table-body">
+				<tr>
+					<th>Sin pokemon</th>
+					<td>url</td>
+					<td>ability 1</td>
+					<td>ability 2</td>
+				</tr>
+			</tbody>
+			<tfoot id="table-foot">
+				<tr>
+					<th scope="row">
+						No hay pokemones :(
+					</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<template id="template-poke">
+		<tr>
+			<th >bulbasaur</th>
+			<td >url</td>
+			<td >ability 1</td>
+			<td >ability 2</td>
+		</tr>
+	</template>
+	<template id="template-foot">
+		<tr>
+			<th scope="row"> Pokemones!!!!</th>
+		</tr>
+	</template>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
