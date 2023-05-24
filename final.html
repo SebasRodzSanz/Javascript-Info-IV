@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITEC de México | Inscripción</title>
+    <!--
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/frontend/css/inscripcion.css" />
+    -->
+    <style type="text/css">
+      *, *::after, *::before {
+      box-sizing: border-box;
+      }
+
+    body{
+    margin: 0;
+    }
+
+    .root{
+    font-family: sans-serif;
+    }
+
+  .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #F8F9FB;
+
+  width: 100%;
+  height: 125px;
+  box-shadow: 0px 0px  5px #333;
+  }
+
+  .main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+
+  .student-data{
+  font-size: 1.1rem;
+  padding: 5px;
+  width: 50%;
+  }
+
+  .student-name, .student-account{
+    font-weight: bold
+  } 
+    </style>
+  </head>
+<body>
+  <div class="root">
+    <header class="header">
+      <img
+        src="#"
+        alt="Logo Itec de Mexico"
+        class="logo"
+      />
+
+      <h2 class="header__title">Sistema de Inscripción</h2>
+    </header>
+    <main class="main">
+      <h1>Has finalizado tu inscripción</h1>
+
+      <h2>Datos</h2>
+
+      <p>Nombre: <span id="nombre-alumno"> Sebas Rodríguez Sánchez</span></p>
+      <p>Numero de Cuenta <span id="no-cuenta">0002231</span></p>
+      <p>Grupo <span id="grupo"></span>10012</p>
+
+      <button type="button" id="btn-fin">Volver a inicio</button>
+
+      <p id="notificacion">Revise que sus datos sean correctos</p>
+    </main>
+  </div>
+
+  <dialog  id="modal">
+      <h2>Ups!, hay un error de inicio de sesión</h2>
+      <p>Error(Aqui van  detalles del error)</p>
+      <p>Por favor, inicia sesión para realizar tu proceso de inscipción</p>
+      <button id="btn-modal">Volver a inicio</button>
+  </dialog>
+
+  <script type="text/javascript" src="final-logica.js"></script>
+</body>
+</html>
