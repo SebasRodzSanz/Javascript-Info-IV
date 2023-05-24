@@ -40,7 +40,6 @@ const cambiarDePagina = (namePage) => {
 /*addEventListener*/
 document.addEventListener('DOMContentLoaded',(e)=>{
  cargarAlumno();
- cambiarDePagina('inicio-de-sesion.html');
 });
 btnModal.addEventListener('click',(e)=>{
     modal.close();
